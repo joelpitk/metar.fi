@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import AutoComplete from "material-ui/AutoComplete";
 import MenuItem from "material-ui/MenuItem";
 
-const toAirportItem = (airport) => ({
+const toAirportItem = airport => ({
   airportCode: airport.airportCode,
   airport: airport,
-  value: <MenuItem primaryText={airport.airportCode} secondaryText={airport.airportName} />
+  value: (
+    <MenuItem
+      primaryText={airport.airportCode}
+      secondaryText={airport.airportName}
+    />
+  )
 });
 
 const filterCaseInsensitive = (searchText, key) =>
@@ -24,6 +29,7 @@ const sortByAirportCode = (airport1, airport2) => {
 export class SearchInput extends Component {
   constructor(props) {
     super(props);
+    this.airports = props.airports;
     this.state = {
       searchText: ""
     };
@@ -34,8 +40,16 @@ export class SearchInput extends Component {
   };
 
   onNewRequest = chosenRequest => {
-    this.props.onAirportSelected(chosenRequest.airport);
-    this.setState({ searchText: "" });
+    const selectedAirport =
+      chosenRequest.airport ||
+      this.airports.find(
+        airport =>
+          airport.airportCode.toLowerCase() === chosenRequest.toLowerCase()
+      );
+    if (selectedAirport) {
+      this.props.onAirportSelected(selectedAirport);
+      this.setState({ searchText: "" });
+    }
   };
 
   render() {

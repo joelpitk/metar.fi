@@ -4,7 +4,6 @@ import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MenuBar from "./components/MenuBar";
 import AirportSearch from "./components/AirportSearch";
 import MetarList from "./components/MetarList";
-import "./App.css";
 
 const theme = getMuiTheme({
   palette: {
