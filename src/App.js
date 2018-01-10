@@ -34,20 +34,15 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={theme}>
-        <div style={{ marginTop: "100px" }}>
-          <MenuBar />
-          <div
-            style={{
-              maxWidth: "860px",
-              margin: "0 auto"
-            }}
-          >
-            <div style={{marginLeft: "5%", marginRight: "5%"}}>
-              <AirportSearch onAirportSelected={this.onAirportSelected} />
-              <div style={{ marginTop: "20px" }}>
-                <MetarList airports={this.state.selectedAirports} />
-              </div>
-            </div>
+        <div style={{display: "flex", flexDirection: "column", alignItems: "center", height: "100vh", width: "100vw"}}>
+          <div style={{flex: "0 0 10%", maxWidth: "800px", width: "80vw"}}>
+            <h1 style={{fontSize: "72px"}}>METAR</h1>
+          </div>
+          <div style={{flex: "0 0 10%", maxWidth: "800px", width: "80vw"}}>
+            <AirportSearch onAirportSelected={this.onAirportSelected} />
+          </div>
+          <div style={{flex: "0 1 80%", maxWidth: "800px", width: "80vw", overflowY: "auto", overflowX: "hidden"}}>
+            <MetarList airports={this.state.selectedAirports} />
           </div>
         </div>
       </MuiThemeProvider>
