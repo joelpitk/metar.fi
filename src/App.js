@@ -7,9 +7,7 @@ import MetarList from "./components/MetarList";
 
 const theme = getMuiTheme({
   palette: {
-    primary1Color: "#22225c",
-    primary2Color: "#504a8a",
-    primary3Color: "#000032"
+    primary1Color: "#00658c"
   },
   appBar: {
     height: 50
@@ -30,19 +28,64 @@ class App extends Component {
     }));
   };
 
+  onRemoveAirport = airportCode => {
+    this.setState(previousState => ({
+      selectedAirports: previousState.selectedAirports.filter(
+        airport => airport.airportCode !== airportCode
+      )
+    }));
+  };
+
   render() {
     return (
-      <MuiThemeProvider muiTheme={theme}>
-        <div style={{display: "flex", flexDirection: "column", alignItems: "center", height: "100vh", width: "100vw"}}>
-          <div style={{flex: "0 0 10%", maxWidth: "800px", width: "80vw"}}>
-            <h1 style={{fontSize: "72px"}}>METAR</h1>
-          </div>
-          <div style={{flex: "0 0 10%", maxWidth: "800px", width: "80vw"}}>
+      <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            height: "100vh",
+            width: "100vw"
+          }}
+        >
+          <MenuBar />
+          <div
+            style={{
+              flex: "0 0 10%",
+              maxWidth: "800px",
+              width: "80vw",
+              marginTop: "100px"
+            }}
+          >
             <AirportSearch onAirportSelected={this.onAirportSelected} />
           </div>
-          <div style={{flex: "0 1 80%", maxWidth: "800px", width: "80vw", overflowY: "auto", overflowX: "hidden"}}>
-            <MetarList airports={this.state.selectedAirports} />
+          <div
+            style={{
+              flex: "0 1 80%",
+              maxWidth: "800px",
+              width: "80vw",
+              overflowY: "auto",
+              overflowX: "hidden"
+            }}
+          >
+            <MetarList
+              airports={this.state.selectedAirports}
+              onRemove={this.onRemoveAirport}
+            />
           </div>
+          <footer 
+              style={{
+              padding: "4px",
+              maxHeight: "40px",
+              maxWidth: "800px",
+              width: "80vw",
+              overflow: "hidden",
+              color: "#d0d0d0",
+              textAlign: "center",
+              fontSize: "10px"
+            }}>
+            All data is provided by <a href="https://www.icao.int/">ICAO</a>. All data is provided without any warranty. Use at your own risk.
+          </footer>
         </div>
       </MuiThemeProvider>
     );
