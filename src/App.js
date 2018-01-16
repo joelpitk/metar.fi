@@ -4,6 +4,7 @@ import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MenuBar from "./components/MenuBar";
 import AirportSearch from "./components/AirportSearch";
 import MetarList from "./components/MetarList";
+import "./App.css";
 
 const theme = getMuiTheme({
   palette: {
@@ -39,52 +40,19 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            height: "100vh",
-            width: "100vw"
-          }}
-        >
+        <div className="main">
           <MenuBar />
-          <div
-            style={{
-              flex: "0 0 10%",
-              maxWidth: "800px",
-              width: "80vw",
-              marginTop: "100px"
-            }}
-          >
+          <div className="airport-search-container">
             <AirportSearch onAirportSelected={this.onAirportSelected} />
           </div>
-          <div
-            style={{
-              flex: "0 1 80%",
-              maxWidth: "800px",
-              width: "80vw",
-              overflowY: "auto",
-              overflowX: "hidden"
-            }}
-          >
+          <div className="metar-list-container">
             <MetarList
               airports={this.state.selectedAirports}
               onRemove={this.onRemoveAirport}
             />
           </div>
-          <footer 
-              style={{
-              padding: "4px",
-              maxHeight: "40px",
-              maxWidth: "800px",
-              width: "80vw",
-              overflow: "hidden",
-              color: "#d0d0d0",
-              textAlign: "center",
-              fontSize: "10px"
-            }}>
-            All data is provided by <a href="https://www.icao.int/">ICAO</a>. All data is provided without any warranty. Use at your own risk.
+          <footer>
+            All data is provided by <a href="https://www.icao.int/" target="_blank" rel="noopener noreferrer">ICAO</a>. All data is provided without any warranty. Use at your own risk.
           </footer>
         </div>
       </MuiThemeProvider>
