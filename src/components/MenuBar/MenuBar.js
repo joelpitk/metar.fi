@@ -1,7 +1,7 @@
 import React from "react";
 import AppBar from "material-ui/AppBar";
 
-const MenuBar = ({ verifying }) => (
+const MenuBar = () => (
   <AppBar
     title="METAR.fi"
     iconStyleLeft={{ display: "none" }}
