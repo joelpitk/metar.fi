@@ -5,7 +5,7 @@ import {
   CardText,
   CardActions
 } from "material-ui/Card";
-import LinearProgress from 'material-ui/LinearProgress';
+import ProgressBar from '../../ProgressBar';
 import RemoveIcon from 'material-ui/svg-icons/content/clear';
 import RefreshIcon from 'material-ui/svg-icons/action/autorenew';
 import IconButton from 'material-ui/IconButton';
@@ -19,7 +19,7 @@ const MetarCard = ({airport, metar, loading, onRemove, onRefresh}) => (
     </CardActions>
     <CardTitle title={airport.airportCode} subtitle={airport.airportName}/>
     <div style={{minHeight: "48px"}}>
-      <CardText>{loading ? <LinearProgress style={{backgroundColor: "#e0e0e0"}} mode="indeterminate"/> : metar.raw_metar}</CardText>
+      <CardText>{loading ? <ProgressBar/> : metar.raw_metar}</CardText>
     </div>
   </Card>
 );

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import api from "../../api";
 import { SearchInput } from "./SearchInput";
-import LinearProgress from 'material-ui/LinearProgress';
+import ProgressBar from "../ProgressBar";
 
 export class SearchContainer extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ export class SearchContainer extends Component {
 
   render() {
     return (
-      this.state.loading ? <LinearProgress style={{backgroundColor: "#e0e0e0"}} mode="indeterminate" /> : <SearchInput airports={this.state.airports} onAirportSelected={this.props.onAirportSelected} />
+      this.state.loading ? <ProgressBar /> : <SearchInput airports={this.state.airports} onAirportSelected={this.props.onAirportSelected} />
     );
   }
 }
