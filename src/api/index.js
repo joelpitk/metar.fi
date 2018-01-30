@@ -3,7 +3,7 @@ import config from "./config";
 const apiUrl = (resource) =>
   `${config.apiUrl}anbdata/airports/weather/${resource}&api_key=${config.apiKey}&format=json`
 
-const apiGet = async (resource) => {
+const get = async (resource) => {
   try {
     const url = apiUrl(resource);
     const response = await fetch(url);
@@ -15,10 +15,10 @@ const apiGet = async (resource) => {
 
 const api = {
   async getMetarAirports() {
-    return apiGet("metar-stations-list?airports=&states=");
+    return get("metar-stations-list?airports=&states=");
   },
   async getMetar(airportCode) {
-    return apiGet(`current-conditions-list?airports=${airportCode}&states=`);
+    return get(`current-conditions-list?airports=${airportCode}&states=`);
   }
 };
 

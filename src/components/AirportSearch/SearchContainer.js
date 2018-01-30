@@ -18,14 +18,10 @@ export class SearchContainer extends Component {
     this.setState(prevState => ({ loading: true, error: false }));
     const airports = await api.getMetarAirports();
 
-    if (airports.error) {
-      this.setState(prevState => ({loading: false, error: airports.error }));
-      return;
-    }
-
     this.setState(prevState => ({
       loading: false,
-      airports: airports
+      airports: airports,
+      error: airports.error
     }));
   }
 
