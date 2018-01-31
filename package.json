@@ -1,21 +1,17 @@
 {
-  "name": "metar",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "material-ui": "^0.20.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17",
-    "typeface-roboto": "0.0.45"
-  },
+  "name": "metar.fi",
+  "version": "1.0.0",
+  "description": "A tool for viewing METAR information from multiple airports at a glance. Visit metar.fi to see it in action.",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "concurrently \"npm run start-api\" \"npm run start-ui\"",
+    "start-ui": "cd ui && npm start",
+    "start-api": "cd api && npm start",
+    "install": "cd ui && npm install && cd api && npm install"
   },
-  "prettier": {
-    "printWidth": 100
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }
