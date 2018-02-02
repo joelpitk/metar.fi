@@ -1,5 +1,6 @@
 const express = require("express");
 const proxy = require("http-proxy-middleware");
+const path = require("path");
 const config = require("./config");
 
 const apiUrl = (resource) =>
@@ -14,6 +15,6 @@ const proxyTo = (routerFn) => proxy({
 const app = express();
 app.get("/api/airports", proxyTo(req => apiUrl(`metar-stations-list?airports=&states=`)));
 app.get("/api/airports/:airportCode/metar", proxyTo(req => apiUrl(`current-conditions-list?airports=${req.params.airportCode}`)));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 module.exports = app;

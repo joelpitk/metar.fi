@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "A tool for viewing METAR information from multiple airports at a glance. Visit metar.fi to see it in action.",
   "scripts": {
-    "start": "concurrently \"npm run start-api\" \"npm run start-ui\"",
+    "prestart": "npm run build && cd dist && npm install",
+    "start": "node dist/server",
+    "start-dev": "concurrently \"npm run start-api\" \"npm run start-ui\"",
     "start-ui": "cd ui && npm start",
     "start-api": "cd api && npm start",
-    "install": "cd ui && npm install && cd api && npm install",
+    "install": "npm run install-ui && npm run install-api",
+    "install-ui": "cd ui && npm install",
+    "install-api": "cd api && npm install",
     "build": "node build"
   },
   "author": "",
