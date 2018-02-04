@@ -1,5 +1,5 @@
 A tool for viewing METAR information from multiple airports at a glance.
-Visit metar.fi to see it in action.
+Visit https://www.metar.fi to see it in action.
 
 ## Getting started
 1. Run `npm install`
