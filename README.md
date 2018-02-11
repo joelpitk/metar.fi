@@ -4,5 +4,5 @@ Visit https://www.metar.fi to see it in action.
 ## Getting started
 1. Run `npm install`
 2. Get yourself an API key for ICAOs APIs from https://www.icao.int/safety/iStars/Pages/API-Data-Service.aspx
-3. Copy the `./api/.env.template` file as `./api/.env` and insert your API key there
+3. Copy the `.env.template` file as `.env` and insert your API key there
 4. Run `npm run start-dev` to run the app in development mode
