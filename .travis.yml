@@ -4,6 +4,7 @@ node_js:
 
 deploy:
   provider: heroku
+  app: metar-fi
   api_key: $HEROKU_AUTH_TOKEN
 
 dist: trusty
