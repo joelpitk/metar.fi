@@ -1,3 +1,4 @@
+# metar.fi
 [![Build Status](https://travis-ci.org/joelpitk/metar.fi.svg?branch=master)](https://travis-ci.org/joelpitk/metar.fi)
 
 A tool for viewing METAR information from multiple airports at a glance.
