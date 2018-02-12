@@ -8,6 +8,8 @@ class MetarCard {
       .parent(".metar-card");
 
     this.removeButton = this.container.find(".remove-button");
+    this.refreshButton = this.container.find(".refresh-button");
+    this.metarText = this.container.find(".raw-metar");
   }
 }
 

@@ -11,7 +11,8 @@
     "install-ui": "cd ui && npm install",
     "install-api": "cd api && npm install",
     "build": "node build && cd dist && npm install",
-    "test": "npm run build && testcafe chrome,firefox tests/*-test.js --app \"npm start\""
+    "test": "npm run build && testcafe chrome,firefox tests/*-test.js --app \"npm start\"",
+    "test-dev": "testcafe chrome,firefox tests/*-test.js --app \"npm start\""
   },
   "author": "",
   "license": "MIT",
