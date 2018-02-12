@@ -10,6 +10,7 @@
     "install": "npm run install-ui && npm run install-api",
     "install-ui": "cd ui && npm install",
     "install-api": "cd api && npm install",
+    "heroku-postbuild": "npm run build",
     "build": "node build && cd dist && npm install",
     "test": "npm run build && testcafe chrome,firefox tests/*-test.js --app \"npm start\"",
     "test-dev": "testcafe chrome,firefox tests/*-test.js --app \"npm start\""
